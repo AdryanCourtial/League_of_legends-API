@@ -7,7 +7,6 @@ import __future__
 
 app = Flask(__name__)
 
-app.register_blueprint(swaggerui_blueprint)
 
 def get_from_role(role):
     role_champion_list = []
