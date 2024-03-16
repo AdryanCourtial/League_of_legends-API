@@ -33,7 +33,7 @@ champions_list = {
         {'id': 24, 'name': 'diana', 'roles': [MID, JUNGLE]},
         {'id': 25, 'name': 'dr. mundo', 'roles': [TOP, JUNGLE]},
         {'id': 26, 'name': 'draven', 'roles': [ADC]},
-        {'id': 27, 'name': 'ek ko', 'roles': [MID, JUNGLE]},
+        {'id': 27, 'name': 'ekko', 'roles': [MID, JUNGLE]},
         {'id': 28, 'name': 'elise', 'roles': [JUNGLE]},
         {'id': 29, 'name': 'evelyn', 'roles': [JUNGLE]},
         {'id': 30, 'name': 'ezreal', 'roles': [ADC]},

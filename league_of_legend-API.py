@@ -1,9 +1,29 @@
 from flask import Flask
 from json import dumps
-from donnees import champions_list
+from donnees import champions_list, SUPP,ADC,MID,TOP,JUNGLE
+import random
 import __future__
 
+
 app = Flask(__name__)
+
+app.register_blueprint(swaggerui_blueprint)
+
+def get_from_role(role):
+    role_champion_list = []
+    for c in champions_list['champion']:
+        if role in c['roles']:
+            role_champion_list.append(c)
+    return { role:role_champion_list }
+
+
+def get_random_champion(role):
+    if role == 'all':
+        return random.choice(champions_list['champion'])
+    else:
+        dict = get_from_role(role)
+        return random.choice(dict[role])
+        
 
 
 @app.route('/champions', methods=['GET'])
@@ -20,7 +40,7 @@ def show_all_routes():
     return dumps(route_list)
 
 
-@app.route('/champions/<id>', methods=['GET'])
+@app.route('/champions/id=<id>', methods=['GET'])
 def show_champion_by_id(id:int):
     '''
     
@@ -36,6 +56,38 @@ def show_all_champion():
     Permet d'afficher TOUS les champions de LOL avec certain attributs
     '''
     return dumps(champions_list)
+
+
+@app.route('/champions/role=<roles>', methods=['GET'])
+def show_champions_by_role(roles):
+    match roles:
+        case 'adc':
+            return dumps(get_from_role('adc'))
+        case 'support':
+            return dumps(get_from_role('support'))
+        case 'mid':
+            return dumps(get_from_role('mid'))
+        case 'jungle':
+            return dumps(get_from_role('jungle'))
+        case 'top':
+            return dumps(get_from_role('top'))
+
+
+@app.route('/champions/role=<roles>/random', methods=['GET'])
+def give_random_champion(roles):
+    match roles:
+        case 'adc':
+            return dumps(get_random_champion('adc'))
+        case 'support':
+            return dumps(get_random_champion('support'))
+        case 'mid':
+            return dumps(get_random_champion('mid'))
+        case 'jungle':
+            return dumps(get_random_champion('jungle'))
+        case 'top':
+            return dumps(get_random_champion('top'))
+        case 'all':
+            return dumps(get_random_champion('top'))
 
 
 if __name__ == '__main__':
