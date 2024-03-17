@@ -14,4 +14,4 @@ def get_random_champion(role):
         return random.choice(champions_list['champion'])
     else:
         dict = get_from_role(role)
-        return random.choice(dict[role])
+        return random.choice(dict[role]) 

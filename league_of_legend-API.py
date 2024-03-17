@@ -69,7 +69,23 @@ def give_random_champion(roles):
         case 'top':
             return dumps(get_random_champion('top'))
         case 'all':
-            return dumps(get_random_champion('top'))
+            return dumps(get_random_champion('all'))
+
+
+@app.route('/champions/get_team', methods=['GET'])
+def give_me_team():
+    team_base = ['top', 'jungle', 'mid', 'adc', 'support']
+    side = ['red_side', 'blue_side']
+    result = {
+        'blue_side':[],
+        'red_side':[]
+    }
+    for role in team_base:
+        for s in side:
+            champions = get_random_champion(role)
+            print(champions)
+            result[s].append(champions)
+    return dumps(result)
 
 
 if __name__ == '__main__':
