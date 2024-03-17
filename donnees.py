@@ -93,7 +93,7 @@ champions_list = {
         {'id': 84, 'name': 'nami', 'roles': [SUPP]},
         {'id': 85, 'name': 'nasus', 'roles': [TOP, JUNGLE]},
         {'id': 86, 'name': 'nautilus', 'roles': [SUPP]},
-        {'id': 87, 'name': 'neeko', 'roles': [MID, JUNGLE, SUPP]},
+        {'id': 87, 'name': 'neeko', 'roles': [MID, SUPP]},
         {'id': 88, 'name': 'nidalee', 'roles': [JUNGLE]},
         {'id': 89, 'name': 'nilah', 'roles': [ADC]},
         {'id': 90, 'name': 'nocturne', 'roles': [JUNGLE]},
