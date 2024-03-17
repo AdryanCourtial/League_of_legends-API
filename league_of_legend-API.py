@@ -83,7 +83,6 @@ def give_me_team():
     for role in team_base:
         for s in side:
             champions = get_random_champion(role)
-            print(champions)
             result[s].append(champions)
     return dumps(result)
 
